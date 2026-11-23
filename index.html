@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جهان زنده | آب‌وهوا و سوانح طبیعی</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-content">
+    <h1>جهان زنده</h1>
+    <nav>
+      <a href="#weather">آب‌وهوا</a>
+      <a href="#earthquakes">زمین‌لرزه‌ها</a>
+      <a href="#disasters">سوانح طبیعی</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="badge">پایش زنده اطلاعات جهانی</span>
+    <h2>جهان را لحظه‌به‌لحظه دنبال کن</h2>
+    <p>اطلاعات آب‌وهوا، زمین‌لرزه‌ها و رخدادهای طبیعی در سراسر جهان</p>
+  </section>
+
+  <section id="weather" class="section">
+    <h2>🌤️ وضعیت آب‌وهوا</h2>
+
+    <div class="search-box">
+      <input id="cityInput" type="text" placeholder="نام شهر را وارد کن">
+      <button id="searchBtn">جست‌وجو</button>
+    </div>
+
+    <p id="message" class="message"></p>
+
+    <div class="weather-card">
+      <h3 id="cityName">نام شهر</h3>
+      <p id="todayDate"></p>
+      <div id="weatherIcon" class="weather-icon">🌤️</div>
+      <div id="temperature" class="temperature">--°</div>
+      <p id="weatherDescription">اطلاعات آب‌وهوا</p>
+
+      <div class="weather-details">
+        <div>رطوبت <strong id="humidity">--</strong></div>
+        <div>سرعت باد <strong id="wind">--</strong></div>
+        <div>دمای حسی <strong id="feelsLike">--</strong></div>
+      </div>
+    </div>
+
+    <h3 class="subheading">پیش‌بینی هفت روز آینده</h3>
+    <div id="forecast" class="forecast-grid"></div>
+  </section>
+
+  <section id="earthquakes" class="section">
+    <h2>🌍 زمین‌لرزه‌های جهان</h2>
+    <p class="section-description">
+      اطلاعات ثبت‌شده زمین‌لرزه‌ها از پایگاه USGS
+    </p>
+
+    <div class="controls">
+      <label for="eventRange">بازه زمانی:</label>
+      <select id="eventRange">
+        <option value="1">۲۴ ساعت اخیر</option>
+        <option value="7">۷ روز اخیر</option>
+        <option value="30">۳۰ روز اخیر</option>
+        <option value="365">یک سال اخیر</option>
+        <option value="1825">۵ سال اخیر</option>
+        <option value="3650" selected>۱۰ سال اخیر</option>
+      </select>
+      <button id="refreshEventsBtn">به‌روزرسانی</button>
+    </div>
+
+    <div id="earthquakeList" class="event-grid">
+      <p class="disaster-message">در حال دریافت اطلاعات...</p>
+    </div>
+  </section>
+
+  <section id="disasters" class="section">
+    <h2>🌪️ سوانح طبیعی جهان</h2>
+    <p class="section-description">
+      رخدادهای طبیعی ثبت‌شده مانند سیل، طوفان، آتش‌سوزی و فعالیت آتشفشانی
+    </p>
+
+    <div id="eventUpdateTime" class="update-time">
+      در انتظار دریافت اطلاعات...
+    </div>
+
+    <div id="naturalEventList" class="event-grid">
+      <p class="disaster-message">در حال دریافت اطلاعات...</p>
+    </div>
+
+    <h3 class="subheading">نقشه جهانی رخدادها</h3>
+    <div id="disasterMap"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>جهان زنده | اطلاعات عمومی آب‌وهوا و رخدادهای طبیعی</p>
+  <p>داده‌ها از منابع بین‌المللی دریافت می‌شوند.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+<script src="disaster.js"></script>
+
+</body>
+</html>
+
